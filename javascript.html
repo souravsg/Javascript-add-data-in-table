@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS test 2</title>
+</head>
+
+<body>
+	<input type="text" id="userName" placeholder="User Name"/>
+	<input type="text" id="userEmail" placeholder="User Email"/>
+	<input type="text" id="userPhone" placeholder="User Phone"/>
+	<button onclick="userGetData()" type="submit">Submit</button>
+	
+	
+	<p>Show In Table</p>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody id="print_table">
+			
+		</tbody>
+	</table>
+</body>
+<script type="text/javascript">
+	var username;
+	var useremail;
+	var userphone;
+	
+	var arrayName =[];
+	var arrayEmail =[];
+	var arrayPhone =[];
+	
+	function userGetData(){
+		username = document.getElementById("userName").value;
+		useremail = document.getElementById("userEmail").value;
+		userphone = document.getElementById("userPhone").value;
+		
+		printArray();
+	}
+	
+	function printArray(){
+		arrayName.push(username);
+		arrayEmail.push(useremail);
+		arrayPhone.push(userphone);
+		
+		showTable();
+		console.log(arrayName,arrayEmail,arrayPhone);
+	}
+	
+	function showTable(){
+		var i;
+		var showResult = "";
+		var count=arrayName.length;
+		
+		for(i=0; i<count; i++){
+			showResult+='<tr><td>'+arrayName[i]+'</td><td>'+arrayEmail[i]+'</td><td>'+arrayPhone[i]+'</td></tr>';
+		}
+		document.getElementById("print_table").innerHTML=showResult;
+	}
+</script>
+
+
+</html>
